@@ -1,5 +1,7 @@
 #pragma once
 #include "enginepch.h"
+#include <sstream>
+#include "Logger/Logger.h"
 
 inline GLenum glCheckError_(const char *file, int line)
 {
@@ -17,7 +19,9 @@ inline GLenum glCheckError_(const char *file, int line)
             case GL_OUT_OF_MEMORY:                 error = "OUT_OF_MEMORY"; break;
             case GL_INVALID_FRAMEBUFFER_OPERATION: error = "INVALID_FRAMEBUFFER_OPERATION"; break;
         }
-        std::cout << error << " | " << file << " (" << line << ")" << std::endl;
+        std::stringstream ss;
+        ss << error << " | " << file << " (" << line << ")";
+        ERRLOG(ss.str());
     }
     return errorCode;
 }

@@ -12,7 +12,7 @@ inline void InitGL(){
     }   
 
     GLCALL(glViewport(0, 0, 800, 600));
-
+    glEnable(GL_DEPTH_TEST);  
     std::string Vendor(reinterpret_cast<const char*>(glGetString(GL_VENDOR)));
     std::string Renderer(reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
     std::string Version(reinterpret_cast<const char*>(glGetString(GL_VERSION)));

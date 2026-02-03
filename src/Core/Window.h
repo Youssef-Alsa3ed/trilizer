@@ -14,9 +14,11 @@ public:
     Window(unsigned int width, unsigned int height, std::string title);
 
     void OnUpdate();
+    void SwapBuffers();
     bool ShouldClose() const;
     unsigned int GetWidth() const;
     unsigned int GetHeight() const;
+    float GetAspectRatio() const;
 
     inline GLFWwindow* GetNativeWindow() const { return m_Window; }
 

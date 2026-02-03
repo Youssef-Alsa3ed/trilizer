@@ -34,6 +34,7 @@ Window::Window(unsigned int width, unsigned int height, std::string title)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwSwapInterval(m_Data.VSync ? 1 : 0);
     // Create a GLFW window
     m_Window = glfwCreateWindow(m_Data.Width, m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
     if (!m_Window)
@@ -103,11 +104,30 @@ Window::Window(unsigned int width, unsigned int height, std::string title)
 
 void Window::OnUpdate()
 {
-    glfwSwapBuffers(m_Window);
     glfwPollEvents();
+}
+
+void Window::SwapBuffers()
+{
+    glfwSwapBuffers(m_Window);
 }
 
 bool Window::ShouldClose() const
 {
     return glfwWindowShouldClose(m_Window);
+}
+
+unsigned int Window::GetWidth() const
+{
+    return m_Data.Width;
+}
+
+unsigned int Window::GetHeight() const
+{
+    return m_Data.Height;
+}
+
+float Window::GetAspectRatio() const
+{
+    return (float)m_Data.Width / (float)m_Data.Height; 
 }

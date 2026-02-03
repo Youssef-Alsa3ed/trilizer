@@ -1,4 +1,3 @@
-#include <glad/glad.h>
 #include "enginepch.h"
 #include "Core/Application.h"
 

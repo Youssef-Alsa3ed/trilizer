@@ -19,6 +19,21 @@ file(GLOB SOURCES
     "src/Events/WindowEvent.h"
     "src/Logger/Logger.h"
     "src/Logger/Logger.cpp"
+    "src/Renderer/Renderer.h"
+    "src/Renderer/Shader.h"
+    "src/Renderer/Shader.cpp"
+    "src/Renderer/VertexBuffer.h"
+    "src/Renderer/VertexBuffer.cpp"
+    "src/Renderer/VertexArray.h"
+    "src/Renderer/VertexArray.cpp"
+    "src/Renderer/VertexBufferLayout.h"
+    "src/Renderer/IndexBuffer.h"
+    "src/Renderer/IndexBuffer.cpp"
+    "src/Renderer/Texture.h"
+    "src/Renderer/Texture.cpp"
+    "src/Renderer/stb_image.cpp"
+    "src/Core/Input.h"
+    "src/Core/Input.cpp"
 )
 message("${SOURCES}")
 
@@ -34,9 +49,12 @@ target_include_directories(trilizer PUBLIC ${CMAKE_SOURCE_DIR}/src)
 #DEPENDENCIES
 add_subdirectory(dependencies/glad)
 add_subdirectory(dependencies/glfw)
+add_subdirectory(dependencies/glm)
+target_include_directories(trilizer PUBLIC dependencies)
 
 target_link_libraries(trilizer PUBLIC GLAD)
 target_link_libraries(trilizer PUBLIC glfw)
+target_link_libraries(trilizer PUBLIC glm)
 
 #SETTINGS
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)

@@ -5,7 +5,9 @@
 		"E:/Dev/trilizer/build/dependencies/glad/cmake_install.cmake",
 		"E:/Dev/trilizer/build/dependencies/glfw/cmake_install.cmake",
 		"E:/Dev/trilizer/build/dependencies/glfw/src/cmake_install.cmake",
-		"E:/Dev/trilizer/build/dependencies/glfw/docs/cmake_install.cmake"
+		"E:/Dev/trilizer/build/dependencies/glfw/docs/cmake_install.cmake",
+		"E:/Dev/trilizer/build/dependencies/glm/cmake_install.cmake",
+		"E:/Dev/trilizer/build/dependencies/glm/glm/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

@@ -1,164 +1,212 @@
 [
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Core\\Application.cpp.obj -c E:\\Dev\\trilizer\\src\\Core\\Application.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Core\\Application.cpp.obj -c E:\\Dev\\trilizer\\src\\Core\\Application.cpp",
   "file": "E:/Dev/trilizer/src/Core/Application.cpp",
   "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Core/Application.cpp.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Core\\Window.cpp.obj -c E:\\Dev\\trilizer\\src\\Core\\Window.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Core\\Input.cpp.obj -c E:\\Dev\\trilizer\\src\\Core\\Input.cpp",
+  "file": "E:/Dev/trilizer/src/Core/Input.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Core/Input.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Core\\Window.cpp.obj -c E:\\Dev\\trilizer\\src\\Core\\Window.cpp",
   "file": "E:/Dev/trilizer/src/Core/Window.cpp",
   "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Core/Window.cpp.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Logger\\Logger.cpp.obj -c E:\\Dev\\trilizer\\src\\Logger\\Logger.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Logger\\Logger.cpp.obj -c E:\\Dev\\trilizer\\src\\Logger\\Logger.cpp",
   "file": "E:/Dev/trilizer/src/Logger/Logger.cpp",
   "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Logger/Logger.cpp.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\enginepch.cpp.obj -c E:\\Dev\\trilizer\\src\\enginepch.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Renderer\\IndexBuffer.cpp.obj -c E:\\Dev\\trilizer\\src\\Renderer\\IndexBuffer.cpp",
+  "file": "E:/Dev/trilizer/src/Renderer/IndexBuffer.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Renderer/IndexBuffer.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Renderer\\Shader.cpp.obj -c E:\\Dev\\trilizer\\src\\Renderer\\Shader.cpp",
+  "file": "E:/Dev/trilizer/src/Renderer/Shader.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Renderer/Shader.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Renderer\\Texture.cpp.obj -c E:\\Dev\\trilizer\\src\\Renderer\\Texture.cpp",
+  "file": "E:/Dev/trilizer/src/Renderer/Texture.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Renderer/Texture.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Renderer\\VertexArray.cpp.obj -c E:\\Dev\\trilizer\\src\\Renderer\\VertexArray.cpp",
+  "file": "E:/Dev/trilizer/src/Renderer/VertexArray.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Renderer/VertexArray.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Renderer\\VertexBuffer.cpp.obj -c E:\\Dev\\trilizer\\src\\Renderer\\VertexBuffer.cpp",
+  "file": "E:/Dev/trilizer/src/Renderer/VertexBuffer.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Renderer/VertexBuffer.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\Renderer\\stb_image.cpp.obj -c E:\\Dev\\trilizer\\src\\Renderer\\stb_image.cpp",
+  "file": "E:/Dev/trilizer/src/Renderer/stb_image.cpp",
+  "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/Renderer/stb_image.cpp.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\enginepch.cpp.obj -c E:\\Dev\\trilizer\\src\\enginepch.cpp",
   "file": "E:/Dev/trilizer/src/enginepch.cpp",
   "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/enginepch.cpp.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\main.cpp.obj -c E:\\Dev\\trilizer\\src\\main.cpp",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -DTRILIZER_PLATFORM_WINDOWS=1 -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm -g -std=gnu++17 -o CMakeFiles\\trilizer.dir\\src\\main.cpp.obj -c E:\\Dev\\trilizer\\src\\main.cpp",
   "file": "E:/Dev/trilizer/src/main.cpp",
   "output": "E:/Dev/trilizer/build/CMakeFiles/trilizer.dir/src/main.cpp.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -IE:/Dev/trilizer/dependencies/glad/include -g -o dependencies\\glad\\CMakeFiles\\GLAD.dir\\src\\glad.c.obj -c E:\\Dev\\trilizer\\dependencies\\glad\\src\\glad.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IE:/Dev/trilizer/dependencies/glad/include -g -o dependencies\\glad\\CMakeFiles\\GLAD.dir\\src\\glad.c.obj -c E:\\Dev\\trilizer\\dependencies\\glad\\src\\glad.c",
   "file": "E:/Dev/trilizer/dependencies/glad/src/glad.c",
   "output": "E:/Dev/trilizer/build/dependencies/glad/CMakeFiles/GLAD.dir/src/glad.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\context.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\context.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/context.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/context.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\init.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\init.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\init.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\init.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/init.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\input.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\input.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\input.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\input.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/input.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\monitor.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\monitor.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\monitor.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\monitor.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/monitor.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\platform.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\platform.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\platform.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\platform.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/platform.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/platform.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\vulkan.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\vulkan.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\vulkan.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\vulkan.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/vulkan.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\window.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\window.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\window.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\window.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/window.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\egl_context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\egl_context.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\egl_context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\egl_context.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/egl_context.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\osmesa_context.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\osmesa_context.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/osmesa_context.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_init.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_init.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_init.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_init.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/null_init.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_monitor.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_monitor.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_monitor.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_monitor.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/null_monitor.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_window.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_window.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_window.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_window.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/null_window.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_joystick.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_joystick.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\null_joystick.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\null_joystick.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/null_joystick.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_module.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_module.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_module.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_module.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_module.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_time.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_time.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_time.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_time.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_time.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_thread.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_thread.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_thread.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_thread.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_thread.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_init.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_init.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_init.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_init.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_init.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_joystick.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_joystick.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_joystick.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_monitor.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_monitor.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_monitor.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_window.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_window.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_window.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\win32_window.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/win32_window.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
 },
 {
   "directory": "E:/Dev/trilizer/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\wgl_context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\wgl_context.c",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glfw/src -IE:/Dev/trilizer/build/dependencies/glfw/src -g -std=c99 -Wall -o dependencies\\glfw\\src\\CMakeFiles\\glfw.dir\\wgl_context.c.obj -c E:\\Dev\\trilizer\\dependencies\\glfw\\src\\wgl_context.c",
   "file": "E:/Dev/trilizer/dependencies/glfw/src/wgl_context.c",
   "output": "E:/Dev/trilizer/build/dependencies/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+},
+{
+  "directory": "E:/Dev/trilizer/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -IE:/Dev/trilizer/dependencies/glm -g -std=c++17 -o dependencies\\glm\\glm\\CMakeFiles\\glm.dir\\detail\\glm.cpp.obj -c E:\\Dev\\trilizer\\dependencies\\glm\\glm\\detail\\glm.cpp",
+  "file": "E:/Dev/trilizer/dependencies/glm/glm/detail/glm.cpp",
+  "output": "E:/Dev/trilizer/build/dependencies/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj"
 }
 ]

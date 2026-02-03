@@ -47,14 +47,23 @@ cmake_ninja_workdir = E$:/Dev/trilizer/build/
 #############################################
 # Order-only phony target for trilizer
 
-build cmake_object_order_depends_target_trilizer: phony || cmake_object_order_depends_target_GLAD cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_trilizer: phony || cmake_object_order_depends_target_GLAD cmake_object_order_depends_target_glfw cmake_object_order_depends_target_glm
 
 build CMakeFiles/trilizer.dir/src/Core/Application.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Core/Application.cpp || cmake_object_order_depends_target_trilizer
   CONFIG = Debug
   DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
   DEP_FILE = CMakeFiles\trilizer.dir\src\Core\Application.cpp.obj.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Core
+
+build CMakeFiles/trilizer.dir/src/Core/Input.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Core/Input.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Core\Input.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
   OBJECT_DIR = CMakeFiles\trilizer.dir
   OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Core
 
@@ -63,7 +72,7 @@ build CMakeFiles/trilizer.dir/src/Core/Window.cpp.obj: CXX_COMPILER__trilizer_un
   DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
   DEP_FILE = CMakeFiles\trilizer.dir\src\Core\Window.cpp.obj.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
   OBJECT_DIR = CMakeFiles\trilizer.dir
   OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Core
 
@@ -72,16 +81,70 @@ build CMakeFiles/trilizer.dir/src/Logger/Logger.cpp.obj: CXX_COMPILER__trilizer_
   DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
   DEP_FILE = CMakeFiles\trilizer.dir\src\Logger\Logger.cpp.obj.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
   OBJECT_DIR = CMakeFiles\trilizer.dir
   OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Logger
+
+build CMakeFiles/trilizer.dir/src/Renderer/IndexBuffer.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Renderer/IndexBuffer.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Renderer\IndexBuffer.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Renderer
+
+build CMakeFiles/trilizer.dir/src/Renderer/Shader.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Renderer/Shader.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Renderer\Shader.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Renderer
+
+build CMakeFiles/trilizer.dir/src/Renderer/Texture.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Renderer/Texture.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Renderer\Texture.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Renderer
+
+build CMakeFiles/trilizer.dir/src/Renderer/VertexArray.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Renderer/VertexArray.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Renderer\VertexArray.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Renderer
+
+build CMakeFiles/trilizer.dir/src/Renderer/VertexBuffer.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Renderer/VertexBuffer.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Renderer\VertexBuffer.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Renderer
+
+build CMakeFiles/trilizer.dir/src/Renderer/stb_image.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/Renderer/stb_image.cpp || cmake_object_order_depends_target_trilizer
+  CONFIG = Debug
+  DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
+  DEP_FILE = CMakeFiles\trilizer.dir\src\Renderer\stb_image.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = CMakeFiles\trilizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src\Renderer
 
 build CMakeFiles/trilizer.dir/src/enginepch.cpp.obj: CXX_COMPILER__trilizer_unscanned_Debug E$:/Dev/trilizer/src/enginepch.cpp || cmake_object_order_depends_target_trilizer
   CONFIG = Debug
   DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
   DEP_FILE = CMakeFiles\trilizer.dir\src\enginepch.cpp.obj.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
   OBJECT_DIR = CMakeFiles\trilizer.dir
   OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src
 
@@ -90,7 +153,7 @@ build CMakeFiles/trilizer.dir/src/main.cpp.obj: CXX_COMPILER__trilizer_unscanned
   DEFINES = -DTRILIZER_PLATFORM_WINDOWS=1
   DEP_FILE = CMakeFiles\trilizer.dir\src\main.cpp.obj.d
   FLAGS = -g -std=gnu++17
-  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include
+  INCLUDES = -IE:/Dev/trilizer/src -IE:/Dev/trilizer/dependencies -IE:/Dev/trilizer/dependencies/glad/include -IE:/Dev/trilizer/dependencies/glfw/include -IE:/Dev/trilizer/dependencies/glm
   OBJECT_DIR = CMakeFiles\trilizer.dir
   OBJECT_FILE_DIR = CMakeFiles\trilizer.dir\src
 
@@ -102,10 +165,10 @@ build CMakeFiles/trilizer.dir/src/main.cpp.obj: CXX_COMPILER__trilizer_unscanned
 #############################################
 # Link the executable bin\trilizer.exe
 
-build bin/trilizer.exe: CXX_EXECUTABLE_LINKER__trilizer_Debug CMakeFiles/trilizer.dir/src/Core/Application.cpp.obj CMakeFiles/trilizer.dir/src/Core/Window.cpp.obj CMakeFiles/trilizer.dir/src/Logger/Logger.cpp.obj CMakeFiles/trilizer.dir/src/enginepch.cpp.obj CMakeFiles/trilizer.dir/src/main.cpp.obj | dependencies/glad/libGLAD.a dependencies/glfw/src/libglfw3.a || dependencies/glad/libGLAD.a dependencies/glfw/src/libglfw3.a
+build bin/trilizer.exe: CXX_EXECUTABLE_LINKER__trilizer_Debug CMakeFiles/trilizer.dir/src/Core/Application.cpp.obj CMakeFiles/trilizer.dir/src/Core/Input.cpp.obj CMakeFiles/trilizer.dir/src/Core/Window.cpp.obj CMakeFiles/trilizer.dir/src/Logger/Logger.cpp.obj CMakeFiles/trilizer.dir/src/Renderer/IndexBuffer.cpp.obj CMakeFiles/trilizer.dir/src/Renderer/Shader.cpp.obj CMakeFiles/trilizer.dir/src/Renderer/Texture.cpp.obj CMakeFiles/trilizer.dir/src/Renderer/VertexArray.cpp.obj CMakeFiles/trilizer.dir/src/Renderer/VertexBuffer.cpp.obj CMakeFiles/trilizer.dir/src/Renderer/stb_image.cpp.obj CMakeFiles/trilizer.dir/src/enginepch.cpp.obj CMakeFiles/trilizer.dir/src/main.cpp.obj | dependencies/glad/libGLAD.a dependencies/glfw/src/libglfw3.a dependencies/glm/glm/libglm.a || dependencies/glad/libGLAD.a dependencies/glfw/src/libglfw3.a dependencies/glm/glm/libglm.a
   CONFIG = Debug
   FLAGS = -g
-  LINK_LIBRARIES = dependencies/glad/libGLAD.a  dependencies/glfw/src/libglfw3.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = dependencies/glad/libGLAD.a  dependencies/glfw/src/libglfw3.a  dependencies/glm/glm/libglm.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\trilizer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -761,6 +824,182 @@ build dependencies/glfw/docs/html/index.html | ${cmake_ninja_workdir}dependencie
   restat = 1
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# E:/Dev/trilizer/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build dependencies/glm/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm && "C:\Program Files\CMake\bin\cmake-gui.exe" -SE:\Dev\trilizer -BE:\Dev\trilizer\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build dependencies/glm/edit_cache: phony dependencies/glm/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build dependencies/glm/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SE:\Dev\trilizer -BE:\Dev\trilizer\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build dependencies/glm/rebuild_cache: phony dependencies/glm/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build dependencies/glm/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build dependencies/glm/CMakeFiles/install.util: CUSTOM_COMMAND dependencies/glm/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm && "C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build dependencies/glm/install: phony dependencies/glm/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build dependencies/glm/CMakeFiles/install/local.util: CUSTOM_COMMAND dependencies/glm/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build dependencies/glm/install/local: phony dependencies/glm/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build dependencies/glm/CMakeFiles/install/strip.util: CUSTOM_COMMAND dependencies/glm/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build dependencies/glm/install/strip: phony dependencies/glm/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# E:/Dev/trilizer/dependencies/glm/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glm
+
+
+#############################################
+# Order-only phony target for glm
+
+build cmake_object_order_depends_target_glm: phony || .
+
+build dependencies/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj: CXX_COMPILER__glm_unscanned_Debug E$:/Dev/trilizer/dependencies/glm/glm/detail/glm.cpp || cmake_object_order_depends_target_glm
+  CONFIG = Debug
+  DEP_FILE = dependencies\glm\glm\CMakeFiles\glm.dir\detail\glm.cpp.obj.d
+  FLAGS = -g -std=c++17
+  INCLUDES = -IE:/Dev/trilizer/dependencies/glm
+  OBJECT_DIR = dependencies\glm\glm\CMakeFiles\glm.dir
+  OBJECT_FILE_DIR = dependencies\glm\glm\CMakeFiles\glm.dir\detail
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glm
+
+
+#############################################
+# Link the static library dependencies\glm\glm\libglm.a
+
+build dependencies/glm/glm/libglm.a: CXX_STATIC_LIBRARY_LINKER__glm_Debug dependencies/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = dependencies\glm\glm\CMakeFiles\glm.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = dependencies\glm\glm\libglm.a
+  TARGET_PDB = glm.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build dependencies/glm/glm/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm\glm && "C:\Program Files\CMake\bin\cmake-gui.exe" -SE:\Dev\trilizer -BE:\Dev\trilizer\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build dependencies/glm/glm/edit_cache: phony dependencies/glm/glm/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build dependencies/glm/glm/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm\glm && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SE:\Dev\trilizer -BE:\Dev\trilizer\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build dependencies/glm/glm/rebuild_cache: phony dependencies/glm/glm/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build dependencies/glm/glm/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build dependencies/glm/glm/CMakeFiles/install.util: CUSTOM_COMMAND dependencies/glm/glm/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm\glm && "C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build dependencies/glm/glm/install: phony dependencies/glm/glm/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build dependencies/glm/glm/CMakeFiles/install/local.util: CUSTOM_COMMAND dependencies/glm/glm/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm\glm && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build dependencies/glm/glm/install/local: phony dependencies/glm/glm/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build dependencies/glm/glm/CMakeFiles/install/strip.util: CUSTOM_COMMAND dependencies/glm/glm/all
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\Dev\trilizer\build\dependencies\glm\glm && "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build dependencies/glm/glm/install/strip: phony dependencies/glm/glm/CMakeFiles/install/strip.util
+
+# =============================================================================
 # Target aliases.
 
 build GLAD: phony dependencies/glad/libGLAD.a
@@ -769,9 +1008,13 @@ build docs: phony dependencies/glfw/docs/docs
 
 build glfw: phony dependencies/glfw/src/libglfw3.a
 
+build glm: phony dependencies/glm/glm/libglm.a
+
 build libGLAD.a: phony dependencies/glad/libGLAD.a
 
 build libglfw3.a: phony dependencies/glfw/src/libglfw3.a
+
+build libglm.a: phony dependencies/glm/glm/libglm.a
 
 build trilizer: phony bin/trilizer.exe
 
@@ -789,7 +1032,7 @@ build update_mappings: phony dependencies/glfw/src/update_mappings
 #############################################
 # Folder: E:/Dev/trilizer/build
 
-build codegen: phony dependencies/glad/codegen dependencies/glfw/codegen
+build codegen: phony dependencies/glad/codegen dependencies/glfw/codegen dependencies/glm/codegen
 
 # =============================================================================
 
@@ -822,9 +1065,23 @@ build dependencies/glfw/src/codegen: phony
 # =============================================================================
 
 #############################################
+# Folder: E:/Dev/trilizer/build/dependencies/glm
+
+build dependencies/glm/codegen: phony dependencies/glm/glm/codegen
+
+# =============================================================================
+
+#############################################
+# Folder: E:/Dev/trilizer/build/dependencies/glm/glm
+
+build dependencies/glm/glm/codegen: phony
+
+# =============================================================================
+
+#############################################
 # Folder: E:/Dev/trilizer/build
 
-build all: phony bin/trilizer.exe dependencies/glad/all dependencies/glfw/all
+build all: phony bin/trilizer.exe dependencies/glad/all dependencies/glfw/all dependencies/glm/all
 
 # =============================================================================
 
@@ -855,20 +1112,34 @@ build dependencies/glfw/docs/all: phony dependencies/glfw/docs/docs
 build dependencies/glfw/src/all: phony dependencies/glfw/src/libglfw3.a
 
 # =============================================================================
+
+#############################################
+# Folder: E:/Dev/trilizer/build/dependencies/glm
+
+build dependencies/glm/all: phony dependencies/glm/glm/all
+
+# =============================================================================
+
+#############################################
+# Folder: E:/Dev/trilizer/build/dependencies/glm/glm
+
+build dependencies/glm/glm/all: phony dependencies/glm/glm/libglm.a
+
+# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja E$:/Dev/trilizer/build/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glad/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glfw/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glfw/src/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glfw/docs/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.1.0-rc1/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeRCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeSystem.cmake E$:/Dev/trilizer/CMakeLists.txt E$:/Dev/trilizer/dependencies/glad/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMake/cmake_uninstall.cmake.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3.pc.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3Config.cmake.in E$:/Dev/trilizer/dependencies/glfw/docs/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/docs/Doxyfile.in E$:/Dev/trilizer/dependencies/glfw/src/CMakeLists.txt
+build build.ninja E$:/Dev/trilizer/build/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glad/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glfw/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glfw/src/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glfw/docs/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glm/cmake_install.cmake E$:/Dev/trilizer/build/dependencies/glm/glm/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.1.0-rc1/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeRCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeSystem.cmake E$:/Dev/trilizer/CMakeLists.txt E$:/Dev/trilizer/dependencies/glad/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMake/cmake_uninstall.cmake.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3.pc.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3Config.cmake.in E$:/Dev/trilizer/dependencies/glfw/docs/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/docs/Doxyfile.in E$:/Dev/trilizer/dependencies/glfw/src/CMakeLists.txt E$:/Dev/trilizer/dependencies/glm/CMakeLists.txt E$:/Dev/trilizer/dependencies/glm/glm/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.1.0-rc1/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeRCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeSystem.cmake E$:/Dev/trilizer/CMakeLists.txt E$:/Dev/trilizer/dependencies/glad/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMake/cmake_uninstall.cmake.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3.pc.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3Config.cmake.in E$:/Dev/trilizer/dependencies/glfw/docs/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/docs/Doxyfile.in E$:/Dev/trilizer/dependencies/glfw/src/CMakeLists.txt: phony
+build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckIncludeFile.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindDoxygen.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindOpenGL.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/GNUInstallDirs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.1.0-rc1/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeRCCompiler.cmake CMakeFiles/4.1.0-rc1/CMakeSystem.cmake E$:/Dev/trilizer/CMakeLists.txt E$:/Dev/trilizer/dependencies/glad/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/CMake/cmake_uninstall.cmake.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3.pc.in E$:/Dev/trilizer/dependencies/glfw/CMake/glfw3Config.cmake.in E$:/Dev/trilizer/dependencies/glfw/docs/CMakeLists.txt E$:/Dev/trilizer/dependencies/glfw/docs/Doxyfile.in E$:/Dev/trilizer/dependencies/glfw/src/CMakeLists.txt E$:/Dev/trilizer/dependencies/glm/CMakeLists.txt E$:/Dev/trilizer/dependencies/glm/glm/CMakeLists.txt: phony
 
 
 #############################################
