@@ -36,6 +36,13 @@ struct Light {
     vec3 diffuse;
     vec3 specular;
     vec3 direction;
+
+    float constant;
+    float linear;
+    float quadratic;
+
+    float cutOff;
+    float outerCutOff;
 };
 
 out vec4 FragColor;
@@ -57,20 +64,47 @@ float diffuse(vec3 normal, vec3 lightDir)
 
 void main()
 {
+
+    bool isDirectional = length(light.direction) > 0.001 && light.cutOff < 0.001;
+    bool isSpot        = light.cutOff > 0.0;
+
     // ambient
     vec3 ambient = light.ambient * texture(material.diffuse, TexCoord).rgb;
     // diffuse 
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(light.position - worldPos);
-    float diff = max(dot(norm, lightDir), 0.0);
+    float attenuation = 1.0;
+    if(isDirectional)
+    {
+        lightDir = -light.direction;
+    }
+    else {
+        float distance    = length(light.position - worldPos);
+        float constant    = light.constant;
+        float linear      = light.linear;
+        float quadratic   = light.quadratic;
+        attenuation = 1.0 / (constant + linear * distance + 
+                    quadratic * (distance * distance));
+
+        if(isSpot)
+        {            
+            float theta = dot(lightDir, normalize(-light.direction));
+            float epsilon   = light.cutOff - light.outerCutOff;
+            float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0) * 1.0;
+            attenuation *= intensity;
+        }
+    }
+
+ 
+    float diff = diffuse(norm, lightDir) * attenuation;
     vec3 diffuse = light.diffuse * diff * texture(material.diffuse, TexCoord).rgb;
     
     // specular
     vec3 viewDir = normalize(viewPos - worldPos);
     vec3 reflectDir = reflect(-lightDir, norm);  
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess) * attenuation;
     vec3 specsample =  texture(material.specular, TexCoord).rgb;
-    vec3 specular = light.specular * (spec * specsample);  
+    vec3 specular = light.specular * spec * specsample;  
         
     FragColor = vec4(ambient + diffuse + specular, 1.0);
 }  
