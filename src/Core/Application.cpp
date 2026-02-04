@@ -52,62 +52,79 @@ bool firstMouse = true;
 
 void Application::Run()
 {
-float vertices[] = {
-    // positions          // normals           // texture coords
-    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-     0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-    -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
+    float vertices[] = {
+        // positions          // normals           // texture coords
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
+        0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
+        0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
+        -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
 
-    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
-     0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 0.0f,
-     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 1.0f,
-    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+        0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
 
-    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+        -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+        -0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
 
-     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-     0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+        0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+        0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+        0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
 
-    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-     0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
-     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
+        0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+        0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+        -0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
 
-    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
-     0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
-     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
-    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+        0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+        -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f};
+
+    vec3 cubePositions[] = {
+        glm::vec3(0.0f, 0.0f, 0.0f),
+        glm::vec3(2.0f, 5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f),
+        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3(2.4f, -0.4f, -3.5f),
+        glm::vec3(-1.7f, 3.0f, -7.5f),
+        glm::vec3(1.3f, -2.0f, -2.5f),
+        glm::vec3(1.5f, 2.0f, -2.5f),
+        glm::vec3(1.5f, 0.2f, -1.5f),
+        glm::vec3(-1.3f, 1.0f, -1.5f)};
+
+glm::vec3 pointLightPositions[] = {
+    glm::vec3( 0.7f,  0.2f,   2.0f),   // key light (front-right)
+    glm::vec3( 2.3f, -3.3f,  -4.0f),   // low side accent
+    glm::vec3(-4.0f,  2.0f, -12.0f),   // far background glow
+    glm::vec3( 0.0f,  0.0f,  -3.0f),   // central fill
+    glm::vec3(-2.5f,  1.5f,   1.0f),   // rim light (left)
+    glm::vec3( 1.5f,  2.5f,  -2.0f)    // top soft light
 };
 
-vec3 cubePositions[] = {
-    glm::vec3( 0.0f,  0.0f,  0.0f), 
-    glm::vec3( 2.0f,  5.0f, -15.0f), 
-    glm::vec3(-1.5f, -2.2f, -2.5f),  
-    glm::vec3(-3.8f, -2.0f, -12.3f),  
-    glm::vec3( 2.4f, -0.4f, -3.5f),  
-    glm::vec3(-1.7f,  3.0f, -7.5f),  
-    glm::vec3( 1.3f, -2.0f, -2.5f),  
-    glm::vec3( 1.5f,  2.0f, -2.5f), 
-    glm::vec3( 1.5f,  0.2f, -1.5f), 
-    glm::vec3(-1.3f,  1.0f, -1.5f)  
+
+glm::vec3 pointLightColors[] = {
+    glm::vec3(1.0f, 0.82f, 0.65f),  // warm key light
+    glm::vec3(0.65f, 0.80f, 1.0f),  // cool contrast light
+    glm::vec3(1.0f, 0.95f, 0.80f),  // neutral fill
+    glm::vec3(0.7f, 0.9f, 1.0f),    // blue atmospheric
+    glm::vec3(1.0f, 0.6f, 0.4f),    // warm rim highlight
+    glm::vec3(0.85f, 0.9f, 1.0f)    // soft overhead light
 };
 
     VertexArray cubeVAO;
@@ -126,7 +143,7 @@ vec3 cubePositions[] = {
 
     VertexArray lightVAO;
     lightVAO.AddBuffer(VBO, layout);
-    
+
     Shader lightSourceShader("../../Assets/Shaders/lightsource.glsl");
     lightSourceShader.Use();
 
@@ -137,55 +154,83 @@ vec3 cubePositions[] = {
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         float frequency = 0.5f;
-        vec3 lightPos = vec3(1.2f + 2.0f * sin(glfwGetTime() * frequency), 2.0f, 3.0f * cos(glfwGetTime() * frequency));
-        mat4 lightmodel = mat4(1.0f);
-        lightmodel = translate(lightmodel, lightPos);
-        lightmodel = scale(lightmodel, vec3(0.2f));
-        projection = glm::perspective(glm::radians(45.0f), window->GetAspectRatio(), 0.1f, 100.0f);
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
-        
-        // draw the lamp object
-        lightSourceShader.Use();
-        lightSourceShader.SetMat4("model", lightmodel);
-        lightSourceShader.SetMat4("view", camera.GetViewMatrix());
-        lightSourceShader.SetMat4("projection", projection);
-        lightVAO.Bind();
-        //GLCALL(glDrawArrays(GL_TRIANGLES, 0, 36));
+        for(int i = 0; i < 6; i++){
+            vec3 initalPos = pointLightPositions[i];
+             // update light position over time
+            vec3 newPos = vec3(
+                initalPos.x + sin(glfwGetTime() * frequency + i) * 2.0f,
+                initalPos.y + cos(glfwGetTime() * frequency + i) * 1.0f,
+                initalPos.z + sin(glfwGetTime() * frequency + i) * 2.0f
+            );
+            vec3 lightPos = newPos;
+            mat4 lightmodel = mat4(1.0f);
+            lightmodel = translate(lightmodel, lightPos);
+            lightmodel = scale(lightmodel, vec3(0.2f));
+            projection = glm::perspective(glm::radians(45.0f), window->GetAspectRatio(), 0.1f, 100.0f);
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+            // draw the lamp object
+            lightSourceShader.Use();
+            lightSourceShader.SetMat4("model", lightmodel);
+            lightSourceShader.SetMat4("view", camera.GetViewMatrix());
+            lightSourceShader.SetMat4("projection", projection);
+            lightSourceShader.SetVec3("lightColor", pointLightColors[i]);
+            lightVAO.Bind();
+            GLCALL(glDrawArrays(GL_TRIANGLES, 0, 36));
+        }
+
 
         // draw our first cube
         lightingshader.Use();
         lightingshader.SetVec3("viewPos", camera.Position);
-        
-        //light properties
-        lightingshader.SetVec3("light.position", camera.Position);
-        lightingshader.SetVec3("light.direction", camera.Front);
-        lightingshader.SetVec3("light.ambient", 0.21f, 0.2f, 0.2f);
-        lightingshader.SetVec3("light.diffuse", 1.0f, 1.0f, 1.0f); // darkened
-        lightingshader.SetVec3("light.specular", 1.0f, 1.0f, 1.0f);
-        lightingshader.SetFloat("light.constant",1.0f);
-        lightingshader.SetFloat("light.linear",0.09f);
-        lightingshader.SetFloat("light.quadratic", 0.032f);
-        lightingshader.SetFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
-        lightingshader.SetFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));
+        for(int i = 0; i < 5; i++){
+            vec3 initalPos = pointLightPositions[i];
+             // update light position over time
+            vec3 newPos = vec3(
+                initalPos.x + sin(glfwGetTime() * frequency + i) * 2.0f,
+                initalPos.y + cos(glfwGetTime() * frequency + i) * 1.0f,
+                initalPos.z + sin(glfwGetTime() * frequency + i) * 2.0f
+            );
+            std::string number = std::to_string(i);
+            lightingshader.SetVec3("lights[" + number + "].position", newPos);
+            lightingshader.SetVec3("lights[" + number + "].ambient", 0.05f, 0.05f, 0.05f);
+            lightingshader.SetVec3("lights[" + number + "].diffuse", pointLightColors[i]); // darkened
+            lightingshader.SetVec3("lights[" + number + "].specular", 1.0f, 1.0f, 1.0f);
+
+            lightingshader.SetFloat("lights[" + number + "].constant", 1.0f);
+            lightingshader.SetFloat("lights[" + number + "].linear", 0.15f);
+            lightingshader.SetFloat("lights[" + number + "].quadratic", 0.08f);
+        }
+
+        lightingshader.SetVec3("lights[5].position", camera.Position);
+        lightingshader.SetVec3("lights[5].direction", camera.Front);
+        lightingshader.SetVec3("lights[5].ambient", 0.1f, 0.1f, 0.1f);
+        vec3 diff = vec3(1.0f, 1.0f, 1.0f) * 1.2f;
+        lightingshader.SetVec3("lights[5].diffuse", diff);
+        lightingshader.SetVec3("lights[5].specular", 1.0f, 1.0f, 1.0f);
+        lightingshader.SetFloat("lights[5].constant", 1.0f);
+        lightingshader.SetFloat("lights[5].linear", 0.09f);
+        lightingshader.SetFloat("lights[5].quadratic", 0.032f);
+        lightingshader.SetFloat("lights[5].cutOff", glm::cos(glm::radians(12.5f)));
+        lightingshader.SetFloat("lights[5].outerCutOff", glm::cos(glm::radians(17.5f)));
         // material properties
-        lightingshader.SetFloat("material.shininess", 32.0f);
+        lightingshader.SetFloat("material.shininess", 64.0f);
         containerTex.Bind(0);
         specularTex.Bind(1);
         lightingshader.SetInt("material.diffuse", 0);
         lightingshader.SetInt("material.specular", 1);
 
-        //lightingshader.SetMat4("model", model);
+        // lightingshader.SetMat4("model", model);
         lightingshader.SetMat4("view", camera.GetViewMatrix());
         lightingshader.SetMat4("projection", projection);
         cubeVAO.Bind();
-        for(unsigned int i = 0; i < 10; i++)
+        for (unsigned int i = 0; i < 10; i++)
         {
             mat4 model = mat4(1.0f);
             model = translate(model, cubePositions[i]);
             float angle = 20.0f * i;
             model = glm::rotate(model, glm::radians(angle),
-            glm::vec3(1.0f, 0.3f, 0.5f));
+                                glm::vec3(1.0f, 0.3f, 0.5f));
             lightingshader.SetMat4("model", model);
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }

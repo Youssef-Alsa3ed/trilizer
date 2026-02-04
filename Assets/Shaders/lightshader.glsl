@@ -47,11 +47,11 @@ struct Light {
 
 out vec4 FragColor;
 
-uniform Material material;
-uniform Light light;
+#define MAX_LIGHTS 6
 
-uniform vec3 lightColor;
-uniform vec3 lightPos;
+uniform Material material;
+uniform Light lights[MAX_LIGHTS];
+
 uniform vec3 viewPos;
 in vec3 Normal;
 in vec3 worldPos;
@@ -62,29 +62,27 @@ float diffuse(vec3 normal, vec3 lightDir)
     return max(dot(normal, lightDir), 0.0);
 }
 
-void main()
+vec3 CalculateLighting(Material material, Light light, vec3 Normal, vec3 worldPos, vec3 viewPos, vec2 TexCoord)
 {
-
     bool isDirectional = length(light.direction) > 0.001 && light.cutOff < 0.001;
     bool isSpot        = light.cutOff > 0.0;
 
-    // ambient
-    vec3 ambient = light.ambient * texture(material.diffuse, TexCoord).rgb;
+
     // diffuse 
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(light.position - worldPos);
     float attenuation = 1.0;
     if(isDirectional)
     {
-        lightDir = -light.direction;
+        lightDir = normalize(-light.direction);
     }
     else {
         float distance    = length(light.position - worldPos);
         float constant    = light.constant;
         float linear      = light.linear;
         float quadratic   = light.quadratic;
-        attenuation = 1.0 / (constant + linear * distance + 
-                    quadratic * (distance * distance));
+        float denom = constant + linear*distance + quadratic*distance*distance;
+        attenuation = 1.0 / max(denom, 0.0001);
 
         if(isSpot)
         {            
@@ -95,7 +93,6 @@ void main()
         }
     }
 
- 
     float diff = diffuse(norm, lightDir) * attenuation;
     vec3 diffuse = light.diffuse * diff * texture(material.diffuse, TexCoord).rgb;
     
@@ -104,7 +101,24 @@ void main()
     vec3 reflectDir = reflect(-lightDir, norm);  
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess) * attenuation;
     vec3 specsample =  texture(material.specular, TexCoord).rgb;
-    vec3 specular = light.specular * spec * specsample;  
-        
-    FragColor = vec4(ambient + diffuse + specular, 1.0);
+    vec3 specular = light.specular * spec * specsample;
+
+    vec3 result = diffuse + specular;
+
+    result = vec3(max(result.r, 0.0), max(result.g, 0.0), max(result.b, 0.0));
+
+    return (result);
+}
+
+
+void main()
+{
+    
+    // ambient
+    vec3 ambient = vec3(0.1, 0.1, 0.1) * texture(material.diffuse, TexCoord).rgb;
+    vec3 result = ambient;
+    for(int i = 0; i < MAX_LIGHTS; i++){
+        result += CalculateLighting(material, lights[i], Normal, worldPos, viewPos, TexCoord);
+    }
+    FragColor = vec4(result, 1.0);
 }  
