@@ -114,7 +114,7 @@ int Shader::GetUniformLocation(const std::string &name) const
     if (location == -1){
         std::stringstream ss;
         ss << "Warning: uniform '" << name << "' not found or optimized out\n";
-        WARNLOG(ss.str());
+        //WARNLOG(ss.str());
     }
     return location;
 }

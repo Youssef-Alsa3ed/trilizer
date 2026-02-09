@@ -6,7 +6,7 @@
 
 void Texture::LoadTextureFromFile(const std::string &path)
 {
-    //glActiveTexture(GL_TEXTURE0);
+    // glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
     // set the texture wrapping/filtering options (on the currently bound texture object)
@@ -28,6 +28,27 @@ void Texture::LoadTextureFromFile(const std::string &path)
         return;
     }
 }
+void Texture::DeleteTexture()
+{
+    GLCALL(glDeleteTextures(1, &textureID));
+}
+// Texture::Texture(Texture &&other) noexcept
+//     : textureID(other.textureID)
+// {
+//     other.textureID = 0;
+// }
+// Texture &Texture::operator=(Texture &&other) noexcept
+// {
+//     if (this != &other)
+//     {
+//         if (textureID != 0)
+//             glDeleteTextures(1, &textureID);
+
+//         textureID = other.textureID;
+//         other.textureID = 0;
+//     }
+//     return *this;
+// }
 Texture::Texture(std::string path)
 {
     stbi_set_flip_vertically_on_load(false);
@@ -48,10 +69,10 @@ void Texture::Bind() const
 void Texture::Bind(unsigned int slot) const
 {
     GLCALL(glActiveTexture(GL_TEXTURE0 + slot));
-    GLCALL(glBindTexture(GL_TEXTURE_2D, textureID)); 
+    GLCALL(glBindTexture(GL_TEXTURE_2D, textureID));
 }
 
 Texture::~Texture()
 {
-    GLCALL(glDeleteTextures(1, &textureID));
+
 }

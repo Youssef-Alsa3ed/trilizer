@@ -24,10 +24,13 @@ void main()
 #shader fragment
 
 struct Material {
-
-    sampler2D diffuse;
-    sampler2D specular;
+    vec3 diffuse;
+    vec3 ambient;
+    float specular;
     float shininess;
+    sampler2D tex1;
+    sampler2D tex2;
+    sampler2D tex3;
 };
 
 struct Light {
@@ -94,13 +97,13 @@ vec3 CalculateLighting(Material material, Light light, vec3 Normal, vec3 worldPo
     }
 
     float diff = diffuse(norm, lightDir) * attenuation;
-    vec3 diffuse = light.diffuse * diff * texture(material.diffuse, TexCoord).rgb;
+    vec3 diffuse = light.diffuse * diff * texture(material.tex1, TexCoord).rgb;
     
     // specular
     vec3 viewDir = normalize(viewPos - worldPos);
     vec3 reflectDir = reflect(-lightDir, norm);  
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess) * attenuation;
-    vec3 specsample =  texture(material.specular, TexCoord).rgb;
+    vec3 specsample =  texture(material.tex2, TexCoord).rgb;
     vec3 specular = light.specular * spec * specsample;
 
     vec3 result = diffuse + specular;
@@ -115,7 +118,7 @@ void main()
 {
     
     // ambient
-    vec3 ambient = vec3(0.1, 0.1, 0.1) * texture(material.diffuse, TexCoord).rgb;
+    vec3 ambient = vec3(0.1, 0.1, 0.1) * texture(material.tex1, TexCoord).rgb;
     vec3 result = ambient;
     for(int i = 0; i < MAX_LIGHTS; i++){
         result += CalculateLighting(material, lights[i], Normal, worldPos, viewPos, TexCoord);

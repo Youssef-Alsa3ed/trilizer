@@ -1,6 +1,9 @@
 #pragma once
 #include "Core.h"
-#include "enginepch.h"
+#include <memory>
+#include <string>
+#include <iostream>
+
 class Logger {
 private:
     static std::shared_ptr<Logger> s_Instance;
@@ -43,6 +46,7 @@ public:
     void DyeConsole(Color color) const;
 };
 
+#ifdef DEBUG
 
 #define ENGINELOG(x) Logger::GetInstance()->DyeConsole(Logger::Color::Green); \ 
                      Logger::GetInstance()->Log(x);
@@ -62,3 +66,13 @@ public:
 
 #define INITLOG(x)     Logger::GetInstance()->DyeConsole(Logger::Color::Magenta); \ 
                      Logger::GetInstance()->Log(x);
+
+#else
+
+    #define ENGINELOG(x) 
+    #define CORELOG(x) 
+    #define TRACELOG(x) 
+    #define WARNLOG(x)  
+    #define ERRLOG(x) 
+    #define INITLOG(x) 
+#endif

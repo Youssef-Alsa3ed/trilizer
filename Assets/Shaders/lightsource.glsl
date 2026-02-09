@@ -14,6 +14,16 @@ void main()
 
 out vec4 FragColor;
 
+struct Material {
+    vec3 diffuse;
+    vec3 ambient;
+    float specular;
+    float shininess;
+    sampler2D tex1;
+    sampler2D tex2;
+    sampler2D tex3;
+};
+uniform Material material;
 uniform vec3 lightColor;
 void main()
 {
