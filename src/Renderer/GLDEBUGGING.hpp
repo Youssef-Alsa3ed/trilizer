@@ -1,4 +1,5 @@
 #pragma once
+#include <glad/glad.h>
 #include "enginepch.h"
 #include <sstream>
 #include "Logger/Logger.h"

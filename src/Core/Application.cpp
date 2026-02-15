@@ -146,16 +146,7 @@ glm::mat4 projection;
 Shader lightSourceShader("../../Assets/Shaders/lightsource.glsl");
 lightSourceShader.Use();
 
-    Texture containerTex("../../Assets/Textures/container2.png");
-    Texture specularTex("../../Assets/Textures/container2_specular.png");
-    Texture anotherTex("../../Assets/Textures/awesomeface.png", true);
-    std::vector<Texture> textures;
-    textures.reserve(3);
-    textures.emplace_back(std::move(containerTex));
-    textures.emplace_back(std::move(specularTex));
-    textures.emplace_back(std::move(anotherTex));
-
-    TriMat material(vec3(1.0f), 1.0f, vec3(1.0f), 32.0f, std::move(textures));
+    TriMat material(vec3(1.0f), 1.0f, vec3(1.0f), 32.0f);
     TriMat lightsourceMat(vec3(1.0f), 1.0f, vec3(1.0f), 32.0f);
     TriMesh cube(vertices, {});
 

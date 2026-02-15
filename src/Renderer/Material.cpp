@@ -3,7 +3,7 @@
 #include "Logger/Logger.h"
 
 
-TriMat::TriMat(vec3 diffuse, float specular, vec3 ambient, float shininess, vector<Texture> textures) 
+TriMat::TriMat(vec3 diffuse, float specular, vec3 ambient, float shininess, vector<std::shared_ptr<Texture>> textures) 
 : diffuse(diffuse), specular(specular), ambient(ambient), shininess(shininess), textures(std::move(textures)) {}
 
 void TriMat::SetShader(Shader *shader)
@@ -25,7 +25,12 @@ void TriMat::Apply()
     shader->SetFloat("material.shininess", shininess);
 
     for (size_t i = 0; i < textures.size(); i++) {
-        textures[i].Bind(i);
+        textures[i]->Bind(i);
         shader->SetInt("material.tex" + std::to_string(i + 1), static_cast<int>(i));
     }
+}
+
+TriMat::~TriMat()
+{
+
 }

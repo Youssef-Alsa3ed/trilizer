@@ -1,11 +1,12 @@
-
+#pragma once
 #include <iostream>
 #include "stb/stb_image.h"
 #include "Logger/Logger.h"
-
+#include "Renderer/GLDEBUGGING.hpp"
 struct Image{
     unsigned char *imageData;
     int width, height, nrChannels;
+
 
     Image(std::string path){
         imageData = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
@@ -15,7 +16,7 @@ struct Image{
         }
     }
 
-    ~Image(){
+    void Free(){
         stbi_image_free(imageData);
     }
 };

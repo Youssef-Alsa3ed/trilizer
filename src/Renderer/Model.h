@@ -2,7 +2,9 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include "TriMesh.h"
-#include <unordered_map>
+#include "enginepch.h"
+#include "Image.h"
+
 
 class Model 
 {
@@ -17,7 +19,9 @@ class Model
         void Draw(Shader &shader);
         void Draw(Shader &shader, TriMat &mat);	
 
-        std::unordered_map<std::string, Texture> loadedTextures;
+        std::unordered_map<std::string, std::shared_ptr<Texture>> loadedTextures;
+
+        ~Model();
     private:
         // model data
         vector<TriMesh> meshes;
@@ -29,6 +33,6 @@ class Model
         void loadModel(string const &path);
         void processNode(aiNode *node, const aiScene *scene);
         void processMesh(aiMesh *mesh, const aiScene *scene);
-        vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, 
+        vector<std::shared_ptr<Texture>> loadMaterialTextures(aiMaterial *mat, aiTextureType type, 
                                              string typeName);
 };

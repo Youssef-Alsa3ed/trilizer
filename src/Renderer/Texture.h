@@ -1,33 +1,41 @@
 #pragma once
+#include "enginepch.h"
 #include <string>
+#include "Renderer/Image.h"
 
 
 class Texture
 {
 private:
 
+std::future<Image> futureImage;
 int width, height, nrChannels;
 void LoadTextureFromFile(const std::string& path);
+
+
+bool uploaded = false;
+bool isFlipped = false;
 public:
-    unsigned int textureID;
+    unsigned int textureID = 0;
 
 
     void DeleteTexture();
-    
-    // // ❌ NO COPYING
-    // Texture(const Texture&) = delete;
-    // Texture& operator=(const Texture&) = delete;
 
-    //     // ✅ MOVE CONSTRUCTOR
-    // Texture(Texture&& other) noexcept;
+    // ❌ disable copy
+    Texture(const Texture&) = delete;
+    Texture& operator=(const Texture&) = delete;
 
-    // // ✅ MOVE ASSIGNMENT
-    // Texture& operator=(Texture&& other) noexcept;
+    // ✅ enable move
+    Texture(Texture&&) noexcept = default;
+    Texture& operator=(Texture&&) noexcept = default;
 
     Texture() = default;
-    Texture(std::string path);
-    Texture(std::string path, bool flipVertically);
-    void Bind() const;
-    void Bind(unsigned int slot) const;
+    //Texture(std::string path);
+    //Texture(std::string path, bool flipVertically);
+    void LoadAsync(const std::string path);
+    void LoadAsync(const std::string path, bool loadFlipped);
+    void TryUploadToGPU();  
+    void Bind();
+    void Bind(unsigned int slot);
     ~Texture();
 };

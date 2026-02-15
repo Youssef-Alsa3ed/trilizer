@@ -2,7 +2,6 @@
 #include "glad/glad.h"
 #include "Logger/Logger.h"
 #include "Renderer/GLDEBUGGING.hpp"
-#include "Renderer/Image.h"
 
 void Texture::LoadTextureFromFile(const std::string &path)
 {
@@ -49,30 +48,85 @@ void Texture::DeleteTexture()
 //     }
 //     return *this;
 // }
-Texture::Texture(std::string path)
+// Texture::Texture(std::string path)
+// {
+//     stbi_set_flip_vertically_on_load(false);
+//     LoadTextureFromFile(path);
+// }
+
+// Texture::Texture(std::string path, bool flipVertically)
+// {
+//     stbi_set_flip_vertically_on_load(flipVertically);
+//     LoadTextureFromFile(path);
+// }
+
+void Texture::Bind()
 {
-    stbi_set_flip_vertically_on_load(false);
-    LoadTextureFromFile(path);
+    TryUploadToGPU();
+
+    if (uploaded){
+        glBindTexture(GL_TEXTURE_2D, textureID);
+    }
+    else {
+        TRACELOG("Texture Is Not Loaded Yet.");
+    }
 }
 
-Texture::Texture(std::string path, bool flipVertically)
+void Texture::Bind(unsigned int slot) 
 {
-    stbi_set_flip_vertically_on_load(flipVertically);
-    LoadTextureFromFile(path);
-}
+    TryUploadToGPU();
 
-void Texture::Bind() const
-{
-    GLCALL(glBindTexture(GL_TEXTURE_2D, textureID));
-}
-
-void Texture::Bind(unsigned int slot) const
-{
-    GLCALL(glActiveTexture(GL_TEXTURE0 + slot));
-    GLCALL(glBindTexture(GL_TEXTURE_2D, textureID));
+    if (uploaded){
+        GLCALL(glActiveTexture(GL_TEXTURE0 + slot));
+        glBindTexture(GL_TEXTURE_2D, textureID);
+    }
 }
 
 Texture::~Texture()
 {
 
+}
+
+
+void Texture::LoadAsync(const std::string path)
+{
+    stbi_set_flip_vertically_on_load(isFlipped);
+    futureImage = std::async(std::launch::async, [path]() {
+        Image img(path.c_str());
+        return img;
+    });
+}
+
+void Texture::TryUploadToGPU()
+{
+        if (uploaded)
+        return;
+
+    if (futureImage.valid() &&
+        futureImage.wait_for(std::chrono::seconds(0)) == std::future_status::ready)
+    {
+        Image img = futureImage.get();
+
+        glGenTextures(1, &textureID);
+        glBindTexture(GL_TEXTURE_2D, textureID);
+
+        if(img.imageData){
+            FillTextureData(GL_TEXTURE_2D, img);
+            GLCALL(glGenerateMipmap(GL_TEXTURE_2D));
+            
+        }
+        else {
+            ERRLOG("FAILED TO LOAD IMAGE.");
+        }
+
+        img.Free();
+
+        uploaded = true;
+    }
+}
+
+void Texture::LoadAsync(const std::string path, bool loadFlipped)
+{
+    isFlipped = loadFlipped;
+    LoadAsync(path);
 }
