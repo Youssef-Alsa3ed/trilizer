@@ -46,15 +46,21 @@ struct Light {
 
     float cutOff;
     float outerCutOff;
+
+    int type;
 };
 
 out vec4 FragColor;
 
 #define MAX_LIGHTS 6
+#define DIRECTIONAL_LIGHT 0
+#define SPOT_LIGHT 1
+#define POINT_LIGHT 2
 
 uniform Material material;
 uniform Light lights[MAX_LIGHTS];
 
+uniform int lightCount;
 uniform vec3 viewPos;
 in vec3 Normal;
 in vec3 worldPos;
@@ -65,63 +71,56 @@ float diffuse(vec3 normal, vec3 lightDir)
     return max(dot(normal, lightDir), 0.0);
 }
 
+
 vec3 CalculateLighting(Material material, Light light, vec3 Normal, vec3 worldPos, vec3 viewPos, vec2 TexCoord)
 {
-    bool isDirectional = length(light.direction) > 0.001 && light.cutOff < 0.001;
-    bool isSpot        = light.cutOff > 0.0;
-
-
-    // diffuse 
     vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(light.position - worldPos);
+    vec3 lightDir;
     float attenuation = 1.0;
-    if(isDirectional)
+
+    if(light.type == DIRECTIONAL_LIGHT)
     {
         lightDir = normalize(-light.direction);
     }
-    else {
-        float distance    = length(light.position - worldPos);
-        float constant    = light.constant;
-        float linear      = light.linear;
-        float quadratic   = light.quadratic;
-        float denom = constant + linear*distance + quadratic*distance*distance;
-        attenuation = 1.0 / max(denom, 0.0001);
+    else
+    {
+        lightDir = normalize(light.position - worldPos);
 
-        if(isSpot)
-        {            
+        float distance = length(light.position - worldPos);
+        attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * distance * distance);
+
+        if(light.type == SPOT_LIGHT)
+        {
             float theta = dot(lightDir, normalize(-light.direction));
-            float epsilon   = light.cutOff - light.outerCutOff;
-            float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0) * 1.0;
+            float epsilon = max(light.cutOff - light.outerCutOff, 0.0001);
+            float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);
             attenuation *= intensity;
         }
     }
 
-    float diff = diffuse(norm, lightDir) * attenuation;
-    vec3 diffuse = light.diffuse * diff * texture(material.tex1, TexCoord).rgb;
-    
-    // specular
+    float diffAmount = max(dot(norm, lightDir), 0.0);
+    vec3 diffuseSample = texture(material.tex1, TexCoord).rgb;
+    vec3 diffuseColor = light.diffuse * diffAmount * diffuseSample;
+    vec3 ambient = diffuseSample * light.ambient;
     vec3 viewDir = normalize(viewPos - worldPos);
-    vec3 reflectDir = reflect(-lightDir, norm);  
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess) * attenuation;
-    vec3 specsample =  texture(material.tex2, TexCoord).rgb;
-    vec3 specular = light.specular * spec * specsample;
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float specFactor = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    vec3 specularColor = light.specular * specFactor * texture(material.tex2, TexCoord).rgb;
 
-    vec3 result = diffuse + specular;
+    diffuseColor *= attenuation;
+    specularColor *= attenuation;
 
-    result = vec3(max(result.r, 0.0), max(result.g, 0.0), max(result.b, 0.0));
-
-    return (result);
+    return diffuseColor + specularColor;
 }
-
 
 void main()
 {
-    
-    // ambient
-    vec3 ambient = vec3(0.1, 0.1, 0.1) * texture(material.tex1, TexCoord).rgb;
-    vec3 result = ambient;
-    for(int i = 0; i < MAX_LIGHTS; i++){
+    vec3 result = vec3(0.0);
+    vec3 norm = normalize(Normal);
+    for(int i = 0; i < lightCount; i++){
         result += CalculateLighting(material, lights[i], Normal, worldPos, viewPos, TexCoord);
     }
+    
     FragColor = vec4(result, 1.0);
+
 }  

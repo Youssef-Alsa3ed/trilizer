@@ -19,7 +19,7 @@ void Texture::LoadTextureFromFile(const std::string &path)
     if (image.imageData)
     {
         FillTextureData(GL_TEXTURE_2D, image);
-        GLCALL(glGenerateMipmap(GL_TEXTURE_2D));
+        //GLCALL(glGenerateMipmap(GL_TEXTURE_2D));
     }
     else
     {

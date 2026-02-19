@@ -1,4 +1,9 @@
-
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    message(STATUS "Setting build type to Release as default.")
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the build type." FORCE)
+    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+endif()
+#set(CMAKE_BUILD_TYPE Release CACHE STRING "" FORCE)
 #PROJECT INITIALIZATION
 cmake_minimum_required(VERSION 4.0.0)
 project(trilizer VERSION 0.1.0 DESCRIPTION "A simple OpenGL Renderer." LANGUAGES CXX)
@@ -42,6 +47,8 @@ file(GLOB SOURCES
       "src/Renderer/Model.cpp"
     "src/Core/Input.h"
     "src/Core/Input.cpp"
+    "src/Renderer/Light.h"
+    "src/Renderer/Light.cpp"
 )
 message("${SOURCES}")
 
