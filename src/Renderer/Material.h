@@ -9,9 +9,9 @@ using namespace glm;
 class TriMat{
     private:
     vec3 diffuse;
-    float specular;
+    float specular = 1.0f;
     vec3 ambient;
-    float shininess;
+    float shininess = 64.0f;
     vector<std::shared_ptr<Texture>> textures;
     Shader* shader;
     public:

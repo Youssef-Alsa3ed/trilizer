@@ -78,9 +78,12 @@ vec3 CalculateLighting(Material material, Light light, vec3 Normal, vec3 worldPo
     vec3 lightDir;
     float attenuation = 1.0;
 
+
     if(light.type == DIRECTIONAL_LIGHT)
     {
         lightDir = normalize(-light.direction);
+
+
     }
     else
     {
@@ -110,7 +113,7 @@ vec3 CalculateLighting(Material material, Light light, vec3 Normal, vec3 worldPo
     diffuseColor *= attenuation;
     specularColor *= attenuation;
 
-    return diffuseColor + specularColor;
+    return diffuseColor + specularColor + ambient;
 }
 
 void main()
@@ -120,7 +123,7 @@ void main()
     for(int i = 0; i < lightCount; i++){
         result += CalculateLighting(material, lights[i], Normal, worldPos, viewPos, TexCoord);
     }
-    
+    result = texture(material.tex1, TexCoord).rgb;
     FragColor = vec4(result, 1.0);
 
 }  

@@ -6,7 +6,7 @@
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
-static Application* appInstance = nullptr;
+static Application *appInstance = nullptr;
 
 Application::Application()
 {
@@ -27,14 +27,13 @@ void ProcessDeltaTime()
     lastFrame = currentFrame;
 }
 
-
 void Application::Run()
 {
 
     while (isRunning)
     {
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.04f, 0.28f, 0.26f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         AppUpdate(deltaTime);
         // // should be last to update window events
@@ -43,8 +42,6 @@ void Application::Run()
         ProcessDeltaTime();
     }
 }
-
-
 
 void Application::Close()
 {
@@ -58,9 +55,9 @@ void Application::Initialize()
     isRunning = true;
     window = Window::Create(800, 600, "Trilizer Engine");
     window->SetCallBack(BIND_EVENT_FN(OnEvent));
-    
+
     Input::Get().Init(window->GetNativeWindow());
-    
+
     InitGL();
 
     appInstance = this;
@@ -69,7 +66,7 @@ void Application::Initialize()
     ENGINELOG("Application Initialized");
 }
 
-Application* Application::GetInstance()
+Application *Application::GetInstance()
 {
     return appInstance;
 }
@@ -81,7 +78,7 @@ Window &Application::GetWindow()
 
 void Application::OnEvent(Event &e)
 {
-    //CORELOG(e.ToString());
+    // CORELOG(e.ToString());
     EventDispatcher dispatcher(e);
     dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
     dispatcher.Dispatch<WindowResizeEvent>([](WindowResizeEvent &e)

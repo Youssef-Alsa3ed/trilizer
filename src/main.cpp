@@ -12,34 +12,6 @@
 
 using namespace glm;
 
-vec3 cubePositions[] = {
-    glm::vec3(0.0f, 0.0f, 0.0f),
-    glm::vec3(2.0f, 5.0f, -15.0f),
-    glm::vec3(-1.5f, -2.2f, -2.5f),
-    glm::vec3(-3.8f, -2.0f, -12.3f),
-    glm::vec3(2.4f, -0.4f, -3.5f),
-    glm::vec3(-1.7f, 3.0f, -7.5f),
-    glm::vec3(1.3f, -2.0f, -2.5f),
-    glm::vec3(1.5f, 2.0f, -2.5f),
-    glm::vec3(1.5f, 0.2f, -1.5f),
-    glm::vec3(-1.3f, 1.0f, -1.5f)};
-
-glm::vec3 pointLightPositions[] = {
-    glm::vec3(0.7f, 0.2f, 2.0f),    // key light (front-right)
-    glm::vec3(2.3f, -3.3f, -4.0f),  // low side accent
-    glm::vec3(-4.0f, 2.0f, -12.0f), // far background glow
-    glm::vec3(0.0f, 0.0f, -3.0f),   // central fill
-    glm::vec3(-2.5f, 1.5f, 1.0f),   // rim light (left)
-};
-
-glm::vec3 pointLightColors[] = {
-    glm::vec3(1.0f, 0.82f, 0.65f), // warm key light
-    glm::vec3(0.65f, 0.80f, 1.0f), // cool contrast light
-    glm::vec3(1.0f, 0.95f, 0.80f), // neutral fill
-    glm::vec3(0.7f, 0.9f, 1.0f),   // blue atmospheric
-    glm::vec3(1.0f, 0.6f, 0.4f),   // warm rim highlight
-};
-
 bool firstMouse = true;
 bool hideCursor = false;
 int lastX = 400, lastY = 300;
@@ -48,11 +20,13 @@ Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
 glm::mat4 projection;
 unique_ptr<Shader> lightingshader;
+unique_ptr<Shader> singlecolorshader;
 unique_ptr<Shader> lightSourceShader;
 
 unique_ptr<Model> cube;
 
-unique_ptr<Model> backpack;
+Texture tex;
+Texture tex2;
 
 void MoveCamera(float deltaTime)
 {
@@ -68,87 +42,57 @@ void MoveCamera(float deltaTime)
 
 void AppInit()
 {
-    lightingshader = std::make_unique<Shader>("../../Assets/Shaders/depthshader.glsl");
+    lightingshader = std::make_unique<Shader>("../../Assets/Shaders/lightshader.glsl");
     lightSourceShader = std::make_unique<Shader>("../../Assets/Shaders/lightsource.glsl");
+    singlecolorshader = std::make_unique<Shader>("../../Assets/Shaders/outlineshader.glsl");
+
     cube = std::make_unique<Model>("../../Assets/Models/cube.obj");
-    backpack = std::make_unique<Model>("../../Assets/Models/backpack/backpack.obj", true);
-    
-    Light dir = CreateDirectionLight();
-    LightManager::Get().lights.push_back(dir);
-    for (int i = 1; i < 5; i++)
-    {
-        Light light = CreatePointLight();
-        light.position = pointLightPositions[i];
-        light.diffuse = pointLightColors[i];
-        LightManager::Get().lights.push_back(light);
-    }
-    Light spot = CreateSpotLight();
-    LightManager::Get().lights.push_back(spot);
+    tex.LoadAsync("../../Assets/Textures/container2.png");
+    tex2.LoadAsync("../../Assets/Textures/container2_specular.png");
+    Light light = CreateDirectionLight();
+    LightManager::Get().Submit(light);
+    Light point = CreatePointLight();
+    point.position = vec3(point.position + vec3(2.0f, 0.0f, 0.0f));
+    point.diffuse = vec3(0.6f, 0.33f, 0.2f) * 3.0f;
+    LightManager::Get().Submit(point);
 }
 
 void AppUpdate(float deltaTime)
 {
-    float frequency = 0.5f;
-    for (int i = 0; i < 5; i++)
-    {
-        vec3 initalPos = pointLightPositions[i];
-        // update light position over time
-        vec3 newPos = vec3(
-            initalPos.x + sin(glfwGetTime() * frequency + i) * 2.0f,
-            initalPos.y + cos(glfwGetTime() * frequency + i) * 1.0f,
-            initalPos.z + sin(glfwGetTime() * frequency + i) * 2.0f);
-        vec3 lightPos = newPos;
-        mat4 lightmodel = mat4(1.0f);
-        lightmodel = translate(lightmodel, lightPos);
-        lightmodel = scale(lightmodel, vec3(0.2f));
-        float aspectRatio = Application::GetInstance()->GetWindow().GetAspectRatio();
-        projection = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 100.0f);
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
-        // draw the lamp object
-        lightSourceShader->Use();
-        lightSourceShader->SetMat4("model", lightmodel);
-        lightSourceShader->SetMat4("view", camera.GetViewMatrix());
-        lightSourceShader->SetMat4("projection", projection);
-        lightSourceShader->SetVec3("lightColor", pointLightColors[i]);
 
-        cube->Draw(*lightSourceShader);
-    }
+    glEnable(GL_STENCIL_TEST);
+    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+    glStencilMask(0xFF); // enable writing to the stencil buffer
+    mat4 projection = glm::perspective(glm::radians(45.0f), Application::GetInstance()->GetWindow().GetAspectRatio(), 0.1f, 100.0f);
+    glm::mat4 model = glm::mat4(1.0f);
 
-    for (int i = 0; i < 5; i++)
-    {
-        vec3 initalPos = pointLightPositions[i];
-        // update light position over time
-        vec3 newPos = vec3(
-            initalPos.x + sin(glfwGetTime() * frequency + i) * 2.0f,
-            initalPos.y + cos(glfwGetTime() * frequency + i) * 1.0f,
-            initalPos.z + sin(glfwGetTime() * frequency + i) * 2.0f);
-
-        LightManager::Get().lights[i].position = newPos;
-    }
-
+    tex.TryUploadToGPU();
+    tex.Bind(0);
+    tex.TryUploadToGPU();
+    tex.Bind(1);
     lightingshader->Use();
-    lightingshader->SetVec3("viewPos", camera.Position);
-    Light& spot = LightManager::Get().lights[5];
-    spot.position = camera.Position;
-    spot.direction = camera.Front;
-    // lightingshader->SetMat4("model", model);
-    lightingshader->SetFloat("material.shininess", 128.0f);
+    lightingshader->SetInt("material.tex1", 0);
+    lightingshader->SetInt("material.tex2", 1);
     lightingshader->SetMat4("view", camera.GetViewMatrix());
     lightingshader->SetMat4("projection", projection);
-    for (unsigned int i = 0; i < 10; i++)
-    {
-        mat4 model = mat4(1.0f);
-        model = translate(model, cubePositions[i]);
-        float angle = 20.0f * i;
-        model = glm::rotate(model, glm::radians(angle),
-                            glm::vec3(1.0f, 0.3f, 0.5f));
 
-        model = scale(model, vec3(0.4f));
-        lightingshader->SetMat4("model", model);
-        LightManager::Get().Upload(*lightingshader);
-        backpack->Draw(*lightingshader);
-    }
+    lightingshader->SetMat4("model", model);
+    LightManager::Get().Upload(*lightingshader);
+    cube->Draw(*lightingshader);
+
+    glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+    glStencilMask(0x00); // disable writing to the stencil buffer
+    glDisable(GL_DEPTH_TEST);
+    singlecolorshader->Use();
+    model = scale(model, vec3(1.05f));
+    singlecolorshader->SetMat4("view", camera.GetViewMatrix());
+    singlecolorshader->SetMat4("projection", projection);
+    singlecolorshader->SetMat4("model", model);
+    cube->Draw(*singlecolorshader);
+    glStencilMask(0xFF);
+    glStencilFunc(GL_ALWAYS, 1, 0xFF);
+    glEnable(GL_DEPTH_TEST);
+
     MoveCamera(deltaTime);
 }
 
@@ -157,7 +101,6 @@ void AppClose()
     lightingshader.reset();
     lightSourceShader.reset();
     cube.reset();
-    backpack.reset();
 }
 bool ClientKeyCallBack(KeyPressEvent &e)
 {

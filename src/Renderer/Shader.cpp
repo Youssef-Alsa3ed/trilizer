@@ -49,12 +49,14 @@ void Shader::CreateProgram(const std::string &shaderLocation)
     //TRACELOG("Vertex Shader Source:\n" + vertexSourceStr);
     //TRACELOG("Fragment Shader Source:\n" + fragSourceStr);
     vertex = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertex, 1, &vertexSource, NULL);
-    glCompileShader(vertex);
+    GLCALL();
+    GLCALL(glShaderSource(vertex, 1, &vertexSource, NULL));
+    GLCALL(glCompileShader(vertex));
 
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragment, 1, &fragSource, NULL);
-    glCompileShader(fragment);
+    GLCALL();
+    GLCALL(glShaderSource(fragment, 1, &fragSource, NULL));
+    GLCALL(glCompileShader(fragment));
 
     glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
     if (!success)
@@ -73,9 +75,10 @@ void Shader::CreateProgram(const std::string &shaderLocation)
     };
 
     m_ProgramID = glCreateProgram();
-    glAttachShader(m_ProgramID, vertex);
-    glAttachShader(m_ProgramID, fragment);
-    glLinkProgram(m_ProgramID);
+    GLCALL();
+    GLCALL(glAttachShader(m_ProgramID, vertex));
+    GLCALL(glAttachShader(m_ProgramID, fragment));
+    GLCALL(glLinkProgram(m_ProgramID));
 
     glGetProgramiv(m_ProgramID, GL_LINK_STATUS, &success);
     if (!success)
@@ -85,8 +88,8 @@ void Shader::CreateProgram(const std::string &shaderLocation)
         ERRLOG(infoLog);
     };
 
-    glDeleteShader(vertex);
-    glDeleteShader(fragment);
+    GLCALL(glDeleteShader(vertex));
+    GLCALL(glDeleteShader(fragment));
 }
 Shader::Shader(const std::string & shaderLocation)
 {

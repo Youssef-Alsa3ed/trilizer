@@ -143,7 +143,7 @@ void Model::processMesh(aiMesh *mesh, const aiScene *scene)
     std::vector<std::shared_ptr<Texture>> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
     textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
 
-    TriMat trimat{vec3(1.0f), 1.0f, vec3(1.0f), 32.0f, std::move(textures)};
+    TriMat trimat{vec3(1.0f), 1.0f, vec3(1.0f), 128.0f, std::move(textures)};
     TriMesh trimesh{vertices, indices};
 
     meshes.push_back(std::move(trimesh));
