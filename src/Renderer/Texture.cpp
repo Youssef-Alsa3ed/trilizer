@@ -26,6 +26,8 @@ void Texture::LoadTextureFromFile(const std::string &path)
         ERRLOG("Failed to load texture at path: " + path);
         return;
     }
+
+    uploaded = true;
 }
 void Texture::DeleteTexture()
 {
@@ -88,9 +90,39 @@ Texture::~Texture()
 }
 
 
+void Texture::Load(const std::string path, bool flipVertically)
+{
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    Image image(path, flipVertically);
+    if (image.imageData)
+    {
+        FillTextureData(GL_TEXTURE_2D, image);
+        GLCALL(glGenerateMipmap(GL_TEXTURE_2D));
+        uploaded = true;
+    }
+    else
+    {
+        ERRLOG("Failed to load texture at path: " + path);
+    }
+}
+
 void Texture::LoadAsync(const std::string path)
 {
-    stbi_set_flip_vertically_on_load(isFlipped);
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    // set the texture wrapping/filtering options (on the currently bound texture object)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
     futureImage = std::async(std::launch::async, [path]() {
         Image img(path.c_str());
         return img;
@@ -102,12 +134,12 @@ void Texture::TryUploadToGPU()
         if (uploaded)
         return;
 
+
     if (futureImage.valid() &&
         futureImage.wait_for(std::chrono::seconds(0)) == std::future_status::ready)
     {
         Image img = futureImage.get();
 
-        glGenTextures(1, &textureID);
         glBindTexture(GL_TEXTURE_2D, textureID);
 
         if(img.imageData){
@@ -128,5 +160,18 @@ void Texture::TryUploadToGPU()
 void Texture::LoadAsync(const std::string path, bool loadFlipped)
 {
     isFlipped = loadFlipped;
-    LoadAsync(path);
+
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    // set the texture wrapping/filtering options (on the currently bound texture object)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    futureImage = std::async(std::launch::async, [path, loadFlipped]() {
+        Image img(path.c_str(), loadFlipped);
+        return img;
+    });
 }

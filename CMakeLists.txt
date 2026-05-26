@@ -92,9 +92,12 @@ add_subdirectory(dependencies/glad)
 add_subdirectory(dependencies/glfw)
 add_subdirectory(dependencies/glm)
 add_subdirectory(dependencies/assimp)
+add_subdirectory(dependencies)
 target_include_directories(trilizer PUBLIC dependencies)
 
 target_link_libraries(trilizer PUBLIC GLAD)
 target_link_libraries(trilizer PUBLIC glfw)
 target_link_libraries(trilizer PUBLIC glm)
 target_link_libraries(trilizer PUBLIC assimp)
+target_link_libraries(trilizer PUBLIC imgui)
+

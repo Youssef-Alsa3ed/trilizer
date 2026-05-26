@@ -4,21 +4,33 @@
 layout (location = 0) in vec3 aPos;
 layout (location = 1) in vec3 aNormal;
 layout (location = 2) in vec2 aTexCoord;
+layout (location = 3) in vec3 aTangents;
+layout (location = 4) in vec3 aBiTangents;
+
+
 
 out vec3 worldPos;
 out vec3 Normal;
 out vec2 TexCoord;
+out mat3 TBN;
+
+out vec3 Tangent;
 
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 void main()
 {
+    mat3 normalMatrix = transpose(inverse(mat3(model)));
     worldPos = vec3(model * vec4(aPos, 1.0));
-    Normal = mat3(transpose(inverse(model))) * aNormal;
+    Normal = normalMatrix * aNormal;
     TexCoord = aTexCoord;
-
-    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    vec3 T = normalMatrix * aTangents;
+    vec3 B = normalMatrix * aBiTangents;
+    vec3 N = normalMatrix * aNormal;
+    TBN = transpose(mat3(T, B, N));
+    Tangent = T;
+    gl_Position = projection * view * vec4(worldPos, 1.0);
 }
 
 #shader fragment
@@ -60,12 +72,15 @@ out vec4 FragColor;
 uniform Material material;
 uniform Light lights[MAX_LIGHTS];
 
+uniform bool flipTex;
 uniform int lightCount;
 uniform vec3 viewPos;
+uniform float normalStrength;
 in vec3 Normal;
 in vec3 worldPos;
 in vec2 TexCoord;
-
+in mat3 TBN;
+in vec3 Tangent;
 float diffuse(vec3 normal, vec3 lightDir)
 {
     return max(dot(normal, lightDir), 0.0);
@@ -118,12 +133,16 @@ vec3 CalculateLighting(Material material, Light light, vec3 Normal, vec3 worldPo
 
 void main()
 {
+    vec2 uv = TexCoord;
     vec3 result = vec3(0.0);
-    vec3 norm = normalize(Normal);
+
+    vec3 normalMap = texture(material.tex3, uv).rgb * 2.0 - 1.0;
+    normalMap.xy *= normalStrength;
+    vec3 N = normalize(TBN * normalMap);
+
     for(int i = 0; i < lightCount; i++){
-        result += CalculateLighting(material, lights[i], Normal, worldPos, viewPos, TexCoord);
+        result += CalculateLighting(material, lights[i], N, worldPos, viewPos, uv);
     }
-    result = texture(material.tex1, TexCoord).rgb;
     FragColor = vec4(result, 1.0);
 
-}  
+}

@@ -9,6 +9,7 @@
 class Model 
 {
     public:
+        glm::mat4 transform = glm::mat4(1.0f);
         Model(const string &path)
         {
             loadModel(path);
@@ -27,7 +28,6 @@ class Model
         vector<TriMesh> meshes;
         vector<TriMat> mats;
         string directory;
-
         bool loadTexturesFlipped = false;
 
         void loadModel(string const &path);

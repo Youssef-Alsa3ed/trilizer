@@ -34,6 +34,7 @@ public:
     //Texture(std::string path, bool flipVertically);
     void LoadAsync(const std::string path);
     void LoadAsync(const std::string path, bool loadFlipped);
+    void Load(const std::string path, bool flipVertically = false);
     void TryUploadToGPU();  
     void Bind();
     void Bind(unsigned int slot);

@@ -15,7 +15,7 @@ Light CreateSpotLight()
     Light light;
     light.position = vec3(0.0f);
     light.direction = vec3(0.0f, 0.0f, 1.0f);
-    light.ambient = vec3(0.1f, 0.1f, 0.1f);
+    light.ambient = vec3(0.01f, 0.01f, 0.01f);
     light.diffuse = vec3(1.0f, 1.0f, 1.0f);
     light.specular = vec3(1.0f, 1.0f, 1.0f);
     light.constant = 1.0f;
@@ -31,7 +31,7 @@ Light CreateDirectionLight()
 {
     Light light;
     light.direction = glm::vec3(0.2f, -1.0f, 0.3f);
-    light.ambient   = glm::vec3(0.05f);
+    light.ambient   = glm::vec3(0.01f);
     light.diffuse   = glm::vec3(1.0f);
     light.specular  = glm::vec3(0.5f);
     light.type      = 0;
@@ -44,7 +44,7 @@ Light CreatePointLight()
     light.position = vec3(0.0f);
     light.diffuse = vec3(1.0f);
     light.specular = vec3(1.0f);
-    light.ambient = vec3(0.05f, 0.05f, 0.05f);
+    light.ambient = vec3(0.01f, 0.01f, 0.01f);
     light.constant = 1.0f;
     light.linear = 0.15f;
     light.quadratic = 0.08f;

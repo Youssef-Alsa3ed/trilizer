@@ -32,7 +32,7 @@ void Application::Run()
 
     while (isRunning)
     {
-        glClearColor(0.04f, 0.28f, 0.26f, 1.0f);
+        glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         AppUpdate(deltaTime);

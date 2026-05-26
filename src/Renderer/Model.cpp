@@ -8,6 +8,8 @@
 
 void Model::Draw(Shader &shader)
 {
+    shader.SetBool("flipTex", loadTexturesFlipped);
+    shader.SetMat4("model", transform);
     for(unsigned int i = 0; i < meshes.size(); i++){
         mats[i].SetShader(&shader);
         mats[i].Apply();
@@ -17,6 +19,7 @@ void Model::Draw(Shader &shader)
 
 void Model::Draw(Shader &shader, TriMat &mat)
 {
+    shader.SetMat4("model", transform);
     for(unsigned int i = 0; i < meshes.size(); i++){
         mat.SetShader(&shader);
         mat.Apply();

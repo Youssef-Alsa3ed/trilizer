@@ -8,7 +8,8 @@ struct Image{
     int width, height, nrChannels;
 
 
-    Image(std::string path){
+    Image(std::string path, bool flipVertically = false){
+        stbi_set_flip_vertically_on_load_thread(flipVertically);
         imageData = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
 
         if(!imageData){
@@ -57,3 +58,6 @@ inline void FillTextureData(GLenum type, Image &image){
         image.imageData // pixels
     ));  
 }
+
+
+
