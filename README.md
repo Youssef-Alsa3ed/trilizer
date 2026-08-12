@@ -13,7 +13,7 @@ OpenGL renderer written in C++20.
 
 ## Showcase
 
-![Showcase](public/showcase.mp4)
+<video src="public/showcase.mp4" controls></video>
 
 ## Build
 
