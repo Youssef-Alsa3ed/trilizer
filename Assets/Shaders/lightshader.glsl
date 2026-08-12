@@ -36,9 +36,6 @@ void main()
 #shader fragment
 
 struct Material {
-    vec3 diffuse;
-    vec3 ambient;
-    float specular;
     float shininess;
     sampler2D tex1;
     sampler2D tex2;

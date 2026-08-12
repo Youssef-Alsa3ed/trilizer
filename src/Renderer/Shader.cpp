@@ -33,7 +33,19 @@ std::tuple<std::string, std::string> Shader::ParseShader(const std::string &shad
         }
     }
 
-    return std::make_tuple(vSource.str(), fSource.str());
+    std::string vs = vSource.str();
+    std::string fs = fSource.str();
+
+    size_t verPos = vs.find("#version");
+    if (verPos != std::string::npos)
+    {
+        size_t nlPos = vs.find('\n', verPos);
+        std::string vline = vs.substr(verPos, nlPos - verPos + 1);
+        if (fs.find("#version") == std::string::npos)
+            fs = vline + fs;
+    }
+
+    return std::make_tuple(vs, fs);
 }
 
 void Shader::CreateProgram(const std::string &shaderLocation)
@@ -113,12 +125,6 @@ void Shader::Use() const
 int Shader::GetUniformLocation(const std::string &name) const
 {
     GLCALL(int location = glGetUniformLocation(m_ProgramID, name.c_str()));
-
-    if (location == -1){
-        std::stringstream ss;
-        ss << "Warning: uniform '" << name << "' not found or optimized out\n";
-        //WARNLOG(ss.str());
-    }
     return location;
 }
 

@@ -23,48 +23,7 @@ void main()
 
 #shader fragment
 
-struct Material {
-    vec3 diffuse;
-    vec3 ambient;
-    float specular;
-    float shininess;
-    sampler2D tex1;
-    sampler2D tex2;
-    sampler2D tex3;
-};
-
-struct Light {
-    vec3 position;
-    vec3 ambient;
-    vec3 diffuse;
-    vec3 specular;
-    vec3 direction;
-
-    float constant;
-    float linear;
-    float quadratic;
-
-    float cutOff;
-    float outerCutOff;
-
-    int type;
-};
-
 out vec4 FragColor;
-
-#define MAX_LIGHTS 6
-#define DIRECTIONAL_LIGHT 0
-#define SPOT_LIGHT 1
-#define POINT_LIGHT 2
-
-uniform Material material;
-uniform Light lights[MAX_LIGHTS];
-
-uniform int lightCount;
-uniform vec3 viewPos;
-in vec3 Normal;
-in vec3 worldPos;
-in vec2 TexCoord;
 
 void main()
 {

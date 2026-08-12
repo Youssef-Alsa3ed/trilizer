@@ -21,11 +21,11 @@ public:
 
     void DeleteTexture();
 
-    // ❌ disable copy
+    // disable copy
     Texture(const Texture&) = delete;
     Texture& operator=(const Texture&) = delete;
 
-    // ✅ enable move
+    // enable move
     Texture(Texture&&) noexcept = default;
     Texture& operator=(Texture&&) noexcept = default;
 

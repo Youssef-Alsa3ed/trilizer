@@ -10,7 +10,7 @@ VertexArray::VertexArray()
 
 VertexArray::~VertexArray()
 {
-    GLCALL(glDeleteBuffers(1, &m_RenderID));
+    GLCALL(glDeleteVertexArrays(1, &m_RenderID));
 }
 
 /*VertexArray::VertexArray(const VertexArray &other)
